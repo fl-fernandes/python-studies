@@ -38,13 +38,14 @@ class List:
   def __repr__(self) -> str:
     str_repr = '['
     node = self._head
-    while True:
-      str_repr += str(node.value)
-      node = node.next_node
-      if node == self._head:
-        break
-      else:
-        str_repr += ', '
+    if node is not None:
+      while True:
+        str_repr += str(node.value)
+        node = node.next_node
+        if node == self._head:
+          break
+        else:
+          str_repr += ', '
     str_repr += ']'
     return str_repr
   
@@ -174,11 +175,3 @@ class List:
       current_index+=1
       if node == self._head: # because the list is circular, the tail points to the head
         break
-
-
-list = List()
-list.append(1)
-list.append(2)
-list.append(3)
-
-print(list)
